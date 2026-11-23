@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Nexloft Digital mark: rounded square with stacked "loft" chevrons -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E6FFF"/>
+      <stop offset="1" stop-color="#0A2540"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#g)"/>
+  <path d="M16 34 32 20l16 14" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22 46 32 37l10 9" fill="none" stroke="#8FB8FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
