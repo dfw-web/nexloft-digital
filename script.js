@@ -148,6 +148,7 @@
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (submitBtn.disabled) return; // already sending: ignore extra clicks / Enter presses
     status.className = 'form-status';
     status.textContent = '';
     if (!validate()) return;
@@ -164,7 +165,8 @@
     const data = Object.fromEntries(new FormData(form).entries());
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
+    submitBtn.textContent = 'Sending… please wait';
+    form.setAttribute('aria-busy', 'true');
 
     try {
       const res = await fetch(ajaxUrl, {
@@ -177,13 +179,14 @@
 
       form.reset();
       status.className = 'form-status success';
-      status.textContent = 'Thank you! Your message has been sent. I\'ll get back to you shortly.';
+      status.textContent = 'Thank you! Your message has been sent. Check your inbox (or spam folder) for a confirmation email. I\'ll get back to you shortly.';
     } catch (err) {
       status.className = 'form-status error';
       status.textContent = 'Sorry, something went wrong. Please try again or email hello@nexloftdigital.com.ng.';
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send message';
+      form.removeAttribute('aria-busy');
     }
   });
 })();
