@@ -15,8 +15,6 @@
   --text: #33475B;             /* body text: 9:1 contrast on white */
   --muted: #5A6B7F;
   --border: #DFE6EF;
-  --wa: #25D366;
-  --wa-dark: #128C4B;
 
   --radius: 16px;
   --radius-sm: 10px;
@@ -95,9 +93,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn-outline { background: #fff; color: var(--navy); border-color: var(--border); }
 .btn-outline:hover { border-color: var(--blue); color: var(--blue-dark); box-shadow: var(--shadow-sm); }
 
-/* WhatsApp button uses the darker green so white text meets contrast guidelines */
-.btn-whatsapp { background: var(--wa-dark); color: #fff; box-shadow: 0 6px 18px rgba(18, 140, 75, .25); }
-.btn-whatsapp:hover { background: #0E7A40; }
 
 /* ---------- Navbar ---------- */
 .navbar {
@@ -347,7 +342,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .contact-link:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: var(--shadow); }
 .contact-link small { display: block; font-size: .78rem; font-weight: 500; color: var(--muted); }
 .contact-icon { display: grid; place-items: center; width: 42px; height: 42px; flex-shrink: 0; border-radius: 12px; background: var(--blue-soft); color: var(--blue); }
-.contact-link-wa .contact-icon { background: #E3F8EC; color: var(--wa-dark); }
 .contact-location { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .95rem; }
 .contact-location .icon { color: var(--blue); }
 
@@ -391,23 +385,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .footer-social:hover { background: var(--blue); }
 .footer-bottom { border-top: 1px solid rgba(255, 255, 255, .12); padding: 20px; text-align: center; font-size: .9rem; }
 .footer-bottom p { margin: 0; }
-
-/* ---------- Floating WhatsApp button ---------- */
-.wa-float {
-  position: fixed; right: 18px; bottom: 18px; z-index: 90;
-  display: grid; place-items: center;
-  width: 58px; height: 58px; border-radius: 50%;
-  background: var(--wa); color: #fff;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, .45);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.wa-float svg { width: 30px; height: 30px; }
-.wa-float:hover { transform: scale(1.08); box-shadow: 0 14px 30px rgba(37, 211, 102, .55); }
-.wa-float::before {
-  content: ""; position: absolute; inset: 0; border-radius: 50%;
-  background: var(--wa); z-index: -1; animation: pulse 2.4s ease-out infinite;
-}
-@keyframes pulse { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.6); opacity: 0; } }
 
 /* ---------- Fade-in on scroll ---------- */
 /* Only hide elements once JS has confirmed it can reveal them */

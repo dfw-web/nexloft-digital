@@ -1,7 +1,7 @@
 /* =========================================================
    Nexloft Digital – script.js
    1. Mobile menu   2. Navbar shadow   3. Fade-in on scroll
-   4. FAQ accordion 5. Contact form
+   4. FAQ accordion 5. Package → form pre-fill   6. Contact form
    ========================================================= */
 (function () {
   'use strict';
@@ -82,7 +82,20 @@
     });
   });
 
-  /* ---------- 5. Contact form (FormSubmit via AJAX, with validation) ---------- */
+  /* ---------- 5. Package "Request a quote" buttons pre-fill the form ---------- */
+  const needSelect = document.getElementById('need');
+  document.querySelectorAll('[data-package]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const wanted = btn.dataset.package + ' package';
+      const option = Array.from(needSelect.options).find((o) => o.text === wanted);
+      if (option) {
+        needSelect.value = option.value;
+        needSelect.dispatchEvent(new Event('change')); // clears any old error message
+      }
+    });
+  });
+
+  /* ---------- 6. Contact form (FormSubmit via AJAX, with validation) ---------- */
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
@@ -167,7 +180,7 @@
       status.textContent = 'Thank you! Your message has been sent. I\'ll get back to you shortly.';
     } catch (err) {
       status.className = 'form-status error';
-      status.textContent = 'Sorry, something went wrong. Please try again or message me on WhatsApp.';
+      status.textContent = 'Sorry, something went wrong. Please try again or email hello@nexloftdigital.com.ng.';
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send message';
