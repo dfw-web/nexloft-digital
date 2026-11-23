@@ -1,7 +1,7 @@
 /* =========================================================
    Nexloft Digital – script.js
    1. Mobile menu   2. Navbar shadow   3. Fade-in on scroll
-   4. FAQ accordion 5. Package → form pre-fill   6. Contact form
+   4. FAQ accordion 5. Contact form
    ========================================================= */
 (function () {
   'use strict';
@@ -82,17 +82,7 @@
     });
   });
 
-  /* ---------- 5. Package buttons pre-select the package in the form ---------- */
-  const needSelect = document.getElementById('need');
-  document.querySelectorAll('[data-package]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const wanted = btn.dataset.package + ' package';
-      const option = Array.from(needSelect.options).find((o) => o.text === wanted);
-      if (option) needSelect.value = option.value;
-    });
-  });
-
-  /* ---------- 6. Contact form (FormSubmit via AJAX, with validation) ---------- */
+  /* ---------- 5. Contact form (FormSubmit via AJAX, with validation) ---------- */
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
