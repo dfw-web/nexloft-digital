@@ -559,3 +559,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .industries-note { max-width: 620px; margin: 28px auto 0; text-align: center; color: var(--muted); font-size: 1.02rem; }
 .industries-note a { color: var(--blue-dark); font-weight: 600; text-decoration: none; white-space: nowrap; }
 .industries-note a:hover { text-decoration: underline; }
+
+/* ---------- WhatsApp: hero button + floating button ---------- */
+.btn-whatsapp { background: #25D366; color: #0A2540; box-shadow: 0 6px 18px rgba(37, 211, 102, .3); }
+.btn-whatsapp:hover { background: #1EBE5A; box-shadow: 0 10px 24px rgba(37, 211, 102, .35); }
+.whatsapp-float {
+  position: fixed; z-index: 100;
+  right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #25D366; color: #fff;
+  box-shadow: 0 8px 24px rgba(10, 37, 64, .25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-float .icon { width: 30px; height: 30px; }
+.whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 12px 28px rgba(10, 37, 64, .3); }
+.whatsapp-float:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+
+/* ---------- Package "From ₦…" price line ---------- */
+.package-price { margin: -12px 0 16px; font-size: 1.15rem; font-weight: 700; color: var(--navy); }
